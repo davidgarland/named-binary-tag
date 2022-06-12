@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               nbt2
-version:            0.1.0.0
+version:            0.1.0.1
 
 synopsis: NBT (named binary tag) serialization and deserialization.
 description: This project was created because the old nbt package has had a 1-liner open issue preventing compilation for 2 years now at the time of writing, despite submitting a pull request to fix it.
