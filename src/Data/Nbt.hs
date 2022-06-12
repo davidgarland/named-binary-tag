@@ -20,6 +20,7 @@ import Data.RRBVector (Vector, (<|), (!))
 import Data.Serialize
 import Data.Text (Text)
 import Data.Text.Encoding
+import Data.Word
 
 -- | An NBT tag type, in order so that 'toEnum' and 'fromEnum' are useful for serialization and
 -- deserialization.
@@ -152,13 +153,13 @@ getNbtByType ty = Nbt <$> getString <*> getByType ty
 
 getString :: Get Text
 getString = do
-  len <- get :: Get Int16
+  len <- get :: Get Word16
   decodeUtf8 <$> getByteString (fromIntegral len)
 
 putString :: Text -> Put
 putString t = do
   let b = encodeUtf8 t
-  put (fromIntegral (B.length b) :: Int16)
+  put (fromIntegral (B.length b) :: Word16)
   putByteString b
 
 -- | Read an uncompressed NBT file. Exceptions are thrown as usual if the internal call to 'Data.ByteString.readFile' fails,
