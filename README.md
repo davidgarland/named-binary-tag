@@ -1,4 +1,4 @@
-# nbt2
+# named-binary-tag
 
 A replacement for the old [nbt](https://github.com/acfoltzer/nbt) package, because that one has
 been defunct for 2 years due to missing a single-line fix.
